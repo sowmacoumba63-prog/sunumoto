@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunuMoto ⚡ - Accueil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: white;
+            color: #1A1A1A;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #1A1A1A;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00A86B;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #00A86B;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #008C5A;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1A1A1A;
+            border: 2px solid #1A1A1A;
+        }
+
+        .btn-secondary:hover {
+            background: #F5F5F5;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+            color: white;
+            padding: 100px 30px;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: #CCC;
+            max-width: 700px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 80px 30px;
+            background: #F5F5F5;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #1A1A1A;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #1A1A1A;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* STATS SECTION */
+        .stats {
+            padding: 80px 30px;
+            background: #00A86B;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* PRICING SECTION */
+        .pricing {
+            padding: 80px 30px;
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            border: 2px solid #E5E5E5;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.popular {
+            border-color: #00A86B;
+            background: #F0F8F5;
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #1A1A1A;
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: 700;
+            color: #00A86B;
+            margin-bottom: 20px;
+        }
+
+        .price-features {
+            text-align: left;
+            margin: 20px 0;
+            list-style: none;
+        }
+
+        .price-features li {
+            padding: 10px 0;
+            color: #666;
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        .price-features li:before {
+            content: "✓ ";
+            color: #00A86B;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* CTA SECTION */
+        .cta {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #CCC;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1A1A1A;
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">🚀 SunuMoto ⚡</div>
+        <ul class="nav-links">
+            <li><a href="#features">Fonctionnalités</a></li>
+            <li><a href="#stats">Statistiques</a></li>
+            <li><a href="#pricing">Tarifs</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <a href="simulator.html" class="btn btn-secondary">Essayer</a>
+            <a href="admin-dashboard.html" class="btn btn-primary">Admin</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>L'énergie de chez nous, pour aller plus loin</h1>
+        <p>SunuMoto révolutionne la mobilité urbaine avec le Battery Swapping - changez de batterie en 30 secondes, économisez 80 000 FCFA par mois</p>
+        <div class="hero-buttons">
+            <a href="simulator.html" class="btn btn-primary">🎮 Essayer le Simulateur</a>
+            <a href="#features" class="btn btn-secondary">En Savoir Plus</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2 class="section-title">Pourquoi SunuMoto ?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>30 Secondes</h3>
+                <p>Changez votre batterie en 30 secondes. Plus besoin d'attendre 4 heures !</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Économisez +80K FCFA</h3>
+                <p>800 FCFA par échange vs 4 500 FCFA/jour en essence</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌞</div>
+                <h3>100% Solaire</h3>
+                <p>Nos armoires sont rechargées à l'énergie solaire</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>App Mobile Simple</h3>
+                <p>Scan QR code, paiement Wave en 1 clic</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Zéro Maintenance</h3>
+                <p>Pas de vidanges, pas de réparations</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Suivi en Temps Réel</h3>
+                <p>Dashboard complet avec tous vos revenus</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats" id="stats">
+        <h2 class="section-title" style="color: white; margin-bottom: 50px;">Les Chiffres de SunuMoto</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">720 000 F</div>
+                <div class="stat-label">Revenus/Station/Mois</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">14 Mois</div>
+                <div class="stat-label">Payback Period</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">+120K</div>
+                <div class="stat-label">Bénéfice/Moto</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2.8M</div>
+                <div class="stat-label">Revenu/Moto/5ans</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Tarifs Conducteurs</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>À l'Unité</h3>
+                <div class="price">800 F</div>
+                <p style="color: #666; margin-bottom: 20px;">Par échange</p>
+                <ul class="price-features">
+                    <li>1 échange = 800 FCFA</li>
+                    <li>Paiement Wave</li>
+                    <li>Batterie 100% chargée</li>
+                    <li>85 km d'autonomie</li>
+                </ul>
+            </div>
+            <div class="pricing-card popular">
+                <h3>⭐ Forfait Mensuel</h3>
+                <div class="price">28 000 F</div>
+                <p style="color: #666; margin-bottom: 20px;">Illimité/mois</p>
+                <ul class="price-features">
+                    <li>Échanges illimités</li>
+                    <li>Support prioritaire</li>
+                    <li>Batterie 100% chargée</li>
+                    <li>Priorité d'accès</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <h3>Entreprises</h3>
+                <div class="price">Sur Devis</div>
+                <p style="color: #666; margin-bottom: 20px;">Flotte +10 motos</p>
+                <ul class="price-features">
+                    <li>Tarif réduit volume</li>
+                    <li>Support 24/7</li>
+                    <li>Gestion flotte</li>
+                    <li>Facturation centralisée</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Prêt à Révolutionner votre Mobilité ?</h2>
+        <p>Testez le simulateur SunuMoto dès maintenant</p>
+        <a href="simulator.html" class="btn btn-primary" style="padding: 15px 40px; font-size: 16px;">🎮 Essayer Maintenant</a>
+    </section>
+
+    <footer>
+        <p><strong>SunuMoto ⚡</strong></p>
+        <p>L'énergie de chez nous, pour aller plus loin</p>
+        <p style="margin-top: 20px; opacity: 0.6; font-size: 12px;">© 2026 SunuMoto | Créé en Afrique de l'Ouest</p>
+    </footer>
+</body>
+</html>
